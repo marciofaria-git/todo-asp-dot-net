@@ -16585,6 +16585,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/andavari/projects-dot-net/TodoWebApp/Pages/Tasks.cshtml",
+      "TargetPath": "Pages\\Tasks.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/andavari/projects-dot-net/TodoWebApp/Pages/_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
