@@ -3,3 +3,49 @@
 @{
     ViewData["Title"] = "Tasks";
 }
+
+
+<h1>Tasks 📌</h1>
+<form method="post" class="card p-3">
+    <div class="row">
+        <div asp-validation-summary="All"></div>
+    </div>
+    <div class="form-group mb-0 aling-middle">
+        <label asp-for="NewTask.Name">Name</label>
+        <input type="text" asp-for="NewTask.Name" class="mr-5"/>
+        <label asp-for="NewTask.Priority">Priority</label>
+        <select asp-for="NewTask.Priority" asp-items="Html.GetEnumSelectList<TaskPriority>()" class="mr-5"></select>
+        <label asp-for="NewTask.IsCompleted">Status</label>
+        <input type="checkbox" asp-for="NewTask.IsCompleted" class="mr-5"/>
+        <button class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Is IsCompleted</th>
+            <th scope="col">Delete</th>
+        </tr>
+    <thead>
+
+        @foreach(var task in Model.tasks)
+        {
+            <tr>
+                <td>@task.Name</td>
+                <td>@task.Priority</td>
+                <td>@Model.IsCompletedStatus(task)</td>
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@task.Id">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}

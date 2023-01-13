@@ -9,7 +9,7 @@ public class TasksModel
     [Required]
     public string? Name { get; set; }
     public TaskPriority Priority { get; set; }
-    public bool IsCompleted { get; set; }
+    public bool IsCompleted { get; set;}
 
 }
 
